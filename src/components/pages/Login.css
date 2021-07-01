@@ -1,0 +1,67 @@
+.login-container {
+    
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.login-screen {
+    height: auto;
+    width: 100%;
+    
+    z-index: -1;
+}
+label {
+    font-size: 30px;
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.burr  button{
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+    transition: all 0.2s ease-out;
+}
+.burr  button:hover{
+    background-color: rgb(248, 232, 189);
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+    transition: all 0.2s ease-out;
+}
+
+
+
+.signup-link {
+    font-style: italic;
+    margin-top: 10px;
+    color: rgb(240,128,128);
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    
+    
+} 
+.signup-sec {
+    display: flex;
+    justify-content: center;
+}
+.signup-link:hover {
+    font-style: italic;
+    margin-top: 10px;
+    color: rgb(178,34,34);
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-out;
+    
+} 

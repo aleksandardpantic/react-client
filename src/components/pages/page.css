@@ -1,0 +1,60 @@
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.trailer {
+   height: 70%; 
+    width: 70%;
+    margin-left: 10%;
+    
+    
+}
+.sp_image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.sp_container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
+.text_container {
+    margin-top: -200px;
+}
+.par {
+    font-size: 2vh;
+    font-size-adjust: initial;
+    white-space: pre-line;
+    margin-left: 2%;
+    line-height: 2;
+    color: whitesmoke;
+    margin-top: 10vh;
+    overflow: auto;
+}
+
+.heading {
+    font-size: 3vh;
+    color: whitesmoke;
+    width: 20%;
+    margin: auto;
+}
+.leading {
+    color: lightslategray;
+    width: 20%;
+    margin: auto;
+}
+
+

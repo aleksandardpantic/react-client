@@ -1,0 +1,48 @@
+
+.nig-contaier {
+    /*background: url('./img/7b49f7c0b4f5c8de882c8ad5b26fc5f2.jpg') center center/cover no-repeat;*/
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
+
+.hnig { 
+    color: antiquewhite;
+    font-size: 50px;
+    margin-top: -200px;
+  
+
+}
+.nig {
+    margin-top:5px;
+    
+    
+}
+.nig-btns {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ciite {
+    color: antiquewhite;
+    font-size: 30px;
+    margin-left: 200px;
+    margin-top: -10px;
+}

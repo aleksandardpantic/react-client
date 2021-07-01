@@ -1,0 +1,8 @@
+.signup-container {
+    
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10%;
+}
