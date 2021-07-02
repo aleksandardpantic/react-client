@@ -1,8 +1,9 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 import {Button} from './Button';
-import jQuery from 'jquery';
+import Korisnik from '../Korisnik';
+import Context from '../store/context';
 function Navbar() {
     const [click, setClick] = useState(false);
     const [clickPolica, setPolica] = useState(true);
@@ -11,7 +12,7 @@ function Navbar() {
     const [button, setButton] = useState(true);
     const closeMobileMenu = () => setClick(false);
     
-
+    const {state, actions} = useContext(Context);
     const showButton = () => {
         if(window.innerWidth <= 960){
             setButton(false);
@@ -20,19 +21,22 @@ function Navbar() {
         }
     }
     
+    const logOut = () => {
+        actions({type:'setState',payload: {...state,korisnik:{username: "guest", password: "guest", ime: "guest",prezime:"guest",admin: 0} }})
+        
+    }
     
     
     
-    
-    
-    
+    console.log("navbar korisnik: ")
+    console.log(state.korisnik);
 
     window.addEventListener('resize',showButton);
     return (
         <>
             <nav className="navbar">
                 <div className="navbar-container">
-                    <Link to="/" className="navbar-logo" onClick={handlePolica}>
+                    <Link to="/" className="navbar-logo">
                         <pre>e-biblioteka </pre> <i class="fas fa-book"></i>
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
@@ -42,11 +46,11 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link to='/' className='nav-links'>početna</Link>
                         </li>
-                        <li className={clickPolica ? 'penis' : 'nav-item'}>
+                        <li className={state.korisnik.username==='guest' ? 'penis' : 'nav-item'}>
                             <Link to='/' className='nav-links'>moja polica</Link>
                         </li>
                         
-                        <li className='nav-item'>
+                        <li className='nav-item'  >
                             <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>kontakt</Link>
                         </li>
                         <li className='nav-item'>
@@ -56,7 +60,8 @@ function Navbar() {
                             <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>o nama </Link>
                         </li>
                     </ul>
-                    <Button buttonStyle='btn--outline' to='/login' >Prijavi se</Button>
+                    {state.korisnik.username==='guest' ?  <Button  buttonStyle='btn--outline' to='/login' >prijavi se</Button> : <Button  buttonStyle='btn--outline' onClick={logOut} to='/'>odjavi se</Button>}
+                    
                 </div>
             </nav>
 

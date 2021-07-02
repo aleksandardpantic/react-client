@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Popular.css'
 import { Button } from '../Button'
-import { render } from '@testing-library/react';
+
 
 export class Popular extends Component {
 
