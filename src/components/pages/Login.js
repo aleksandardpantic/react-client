@@ -6,7 +6,7 @@ import Korisnik from '../../Korisnik'
 import Context from '../../store/context'
 
 
-export class Login extends Component{
+export class Login extends Component {
     static contextType = Context
     constructor(props){
         super(props);
@@ -39,13 +39,9 @@ export class Login extends Component{
             } else {
                 
                 this.setState({korisnikk: result[0],loggedIn: true});
-                console.log("ovo je login state: ");
-                console.log(this.state)
-                console.log("ovo je login state username");
-                console.log(this.state.korisnikk.username)
+                
                 actions({type:'setState',payload: {...state,korisnik:{username: this.state.korisnikk.username,password:this.state.korisnikk.password,ime: this.state.korisnikk.ime,prezime: this.state.korisnikk.prezime,admin: this.state.korisnikk.admin} }})
-                console.log("ovo je global state: ")
-                console.log(state.korisnik)
+                
                 
             }
         },
@@ -55,14 +51,15 @@ export class Login extends Component{
     }
     updateUsername(event){
         this.setState({korisnikk: {username: event.target.value, password: this.state.korisnikk.password}})
-        console.log(this.state)
+        
     }
     updatePassword(event){
         this.setState({korisnikk: {password: event.target.value, username: this.state.korisnikk.username}})
-        console.log(this.state)
+        
     }
     
     render(){
+        
         
     return (
         

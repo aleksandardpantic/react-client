@@ -4,19 +4,31 @@ import { Button } from '../Button'
 import Context from '../../store/context'
 
 
-export class Popular extends Component {
+export class Pretraga extends Component {
     static contextType = Context
     constructor(props) {
         super(props);
+        this.checkbox=this.checkbox.bind(this);
+        this.state={knjige:[],check: false}
         this.rezervisi=this.rezervisi.bind(this);
-        this.osvezi=this.osvezi.bind(this);
-        this.state={knjige:[]}
     }
     refreshList(){
-        fetch(process.env.REACT_APP_API+'/popular').then(response=>response.json()).then(data=>{this.setState({knjige:data})});
+        var uslov;
+        if (this.state.check) {
+            uslov=1;
+        } else {
+            uslov = 0;
+        }
+        fetch(process.env.REACT_APP_API+'/Pretraga/'+uslov).then(response=>response.json()).then(data=>{this.setState({knjige:data})});
     }
     componentDidMount(){
         this.refreshList();
+    }
+    
+    checkbox(){
+        this.setState({check: !this.state.check});
+        this.refreshList();
+        console.log(this.state.check)
     }
     rezervisi(event){
         const {state, actions} = this.context;
@@ -40,19 +52,18 @@ export class Popular extends Component {
         (error)=>{
             alert('Failed'+error);
         })
-    }
-    osvezi(){
         this.refreshList();
     }
+    
     render(){
-        const {state, actions} = this.context;
         const {knjige} = this.state;
     return (
         <div className='pop-container'>
             <h1>Popularno</h1>
-            <Button  onClick={this.osvezi}>Osveži</Button>
+            <label className='lablea'>Po oceni</label>
+            <input type="checkbox" onChange={this.checkbox} />
             <div className='knjige'>
-            
+                
         {knjige.map(knjiga=>
             <div className='knjiga'>
                 
@@ -66,8 +77,7 @@ export class Popular extends Component {
             {knjiga.ime + " "+ knjiga.prezime}
             </div>
             <div className='dugme'>
-                {state.korisnik.username==='guest'? <Button to='/login'>Rezerviši</Button> : <Button value= {knjiga.idknjiga} onClick={this.rezervisi}>Rezerviši</Button>}
-                
+                <Button value= {knjiga.idknjiga} onClick={this.rezervisi}>Rezerviši</Button>
             </div>
             
         </div>
@@ -78,5 +88,3 @@ export class Popular extends Component {
     )
     }
 }
-
-

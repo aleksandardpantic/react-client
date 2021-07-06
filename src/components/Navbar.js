@@ -28,8 +28,7 @@ function Navbar() {
     
     
     
-    console.log("navbar korisnik: ")
-    console.log(state.korisnik);
+    
 
     window.addEventListener('resize',showButton);
     return (
@@ -46,10 +45,15 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link to='/' className='nav-links'>početna</Link>
                         </li>
-                        <li className={state.korisnik.username==='guest' ? 'penis' : 'nav-item'}>
-                            <Link to='/' className='nav-links'>moja polica</Link>
+                        <li className={state.korisnik.admin===0 ? 'penis' : 'nav-item'}>
+                            <Link to='/dodavanjeknjige' className='nav-links'>dodaj knjigu</Link>
                         </li>
-                        
+                        <li className={state.korisnik.username==='guest' ? 'penis' : 'nav-item'}>
+                            <Link to='/shelf' className='nav-links'>moja polica</Link>
+                        </li>
+                        <li className={state.korisnik.username==='guest' ? 'penis' : 'nav-item'}>
+                            <Link to='/pretraga' className='nav-links'>pretraga</Link>
+                        </li>
                         <li className='nav-item'  >
                             <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>kontakt</Link>
                         </li>

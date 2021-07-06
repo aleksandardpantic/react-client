@@ -5,7 +5,7 @@ import {Link } from 'react-router-dom';
 const STYLES = ['btn--primary', 'btn--outline'];
 const SIZES = ['btn--medium','btn--large'];
 
-export const Button = ({children, type,rickroll, buttonStyle, buttonSize, onClick, to}) => {
+export const Button = ({children, type,rickroll, buttonStyle, buttonSize, onClick, to, value}) => {
 
     const checkButtonStyle  = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
     const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize :SIZES[0];
@@ -13,7 +13,7 @@ export const Button = ({children, type,rickroll, buttonStyle, buttonSize, onClic
     
     return (
         <Link to={to} exact>
-            <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick={onClick}  type={type}>
+            <button className={`btn ${checkButtonStyle} ${checkButtonSize}`}onClick={onClick} value={value} type={type}>
                 {children}
             </button>
         </Link>
